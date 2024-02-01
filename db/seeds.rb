@@ -1,9 +1,11 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+puts 'Destroy in progress'
+Restaurant.destroy_all
+puts 'Destroy Ok'
+puts 'Table Restaurant in progress'
+chapeau_rouge = {name: "Chapeau Rouge", address: "5 rue du centre - Lyon", phone_number: "03.80.35.20.60", category:"Français" }
+la_toque = {name: "La toque", address: "18 impasse de la fleur - Bourges", phone_number: "04.80.35.20.60", category:"Français" }
+[chapeau_rouge, la_toque].each do |restaurant|
+Restaurant.create(restaurant)
+end
+puts 'Données restaurant insérées'
